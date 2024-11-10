@@ -140,3 +140,58 @@ const sayHello = (name) => {
 
 console.log(sayHello("Hagrid")); 
 console.log(sayHello("Luna")); 
+
+// Javascript Exception
+// 1. Callback
+function greetUser(name, callback) {
+    let greeting = `Hello, ${name}!`;
+    callback(greeting);
+  }
+  
+  function printGreeting(message) {
+    console.log(message);
+  }
+  
+  greetUser('Clara', printGreeting);
+
+// 2. setTimeout
+function greetUser(name) {
+    console.log(`Hello, ${name}!`);
+  }
+  
+  setTimeout(function() {
+    greetUser("Putri");
+  }, 3000);
+
+// 3. setInterval
+let count = 0;
+
+function incrementAndPrint() {
+  count++;
+  console.log("Count:", count);
+}
+
+let intervalId = setInterval(incrementAndPrint, 2000);
+
+setTimeout(function() {
+  clearInterval(intervalId);
+  console.log("Interval stopped.");
+}, 10000);
+
+// 4. Try/Catch&Throw
+function divideBySeven(num) {
+    try {
+      if (num === 0) {
+        throw new Error("Cannot divide by zero");
+      }
+      let result = 7 / num;
+      return result;
+    } catch (error) {
+      console.log(error.message);
+      return "Error occurred";
+    }
+  }
+  
+  console.log(divideBySeven(2)); 
+  console.log(divideBySeven(0)); 
+  console.log(divideBySeven(7)); 
